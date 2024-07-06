@@ -108,7 +108,11 @@ alias zshconfig="nvim ~/.zshrc"
 alias dls="cd ~/.dotfiles"
 alias cn="cd ~/.config/nvim"
 alias src="source ~/.zshrc && source ~/.cargo/env"
-alias gs="git status"
+# aliases for project directories
+alias godir="cd ~/code/go/"
+alias rustdir="cd ~/code/rust/"
+alias pydir="cd ~/code/python/"
+alias jsdir="cd ~/code/js/"
 
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
