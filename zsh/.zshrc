@@ -108,11 +108,19 @@ alias zshconfig="nvim ~/.zshrc"
 alias dls="cd ~/.dotfiles"
 alias cn="cd ~/.config/nvim"
 alias src="source ~/.zshrc && source ~/.cargo/env"
+alias mustcleancachenow="npm cache clean --force && go clean -modcache && brew cleanup --prune=all && rm -rf ~/.cargo/registry"
 # aliases for project directories
+alias cdir="cd ~/code/"
 alias godir="cd ~/code/go/"
 alias rustdir="cd ~/code/rust/"
 alias pydir="cd ~/code/python/"
 alias jsdir="cd ~/code/js/"
+alias cppdir="cd ~/code/cpp/"
+alias cfg="cd ~/.config"
 
+# Path variables
 export N_PREFIX=$HOME/.n
 export PATH=$N_PREFIX/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
