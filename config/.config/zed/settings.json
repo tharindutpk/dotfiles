@@ -7,17 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
   "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
-  "buffer_font_family": "MesloLGSDZ Nerd Font Mono",
+  "ui_font_size": 15,
+  "buffer_font_size": 16,
+  "buffer_font_family": "Hack",
   "buffer_line_height": {
     "custom": 1.618
   },
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Tokyo Night Storm"
+    "dark": "Night Owl No Italics"
   },
   "restore_on_startup": "none",
   // Different settings for specific languages.
