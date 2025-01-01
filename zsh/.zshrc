@@ -105,3 +105,32 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias dls="cd ~/.dotfiles"
+alias cn="cd ~/.config/nvim"
+
+# aliases for project directory
+alias cdir="cd ~/code/"
+
+alias src="source ~/.zshrc && source ~/.cargo/env"
+
+# Helper alias for cleaning files
+alias mustcleancachenow="npm cache clean --force && go clean -modcache && brew cleanup --prune=all && rm -rf ~/.cargo/registry && uv cache clean && rm -rf ~/.npm/_npx"
+
+# Path variables
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
+
+# Add only if necessary
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
+
+# Yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
