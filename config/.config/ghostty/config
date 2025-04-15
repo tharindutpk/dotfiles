@@ -1,0 +1,6 @@
+theme="iTerm2 Default"
+font-family = "Hack Nerd Font Mono"
+font-size = 15
+adjust-cell-height = 25%
+adjust-cell-width= -5%
+shell-integration-features = no-cursor
