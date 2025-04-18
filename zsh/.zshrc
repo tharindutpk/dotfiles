@@ -134,3 +134,5 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
