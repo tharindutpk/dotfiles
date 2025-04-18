@@ -114,7 +114,7 @@ alias cdir="cd ~/code/"
 alias src="source ~/.zshrc && source ~/.cargo/env"
 
 # Helper alias for cleaning files
-alias mustcleancachenow="npm cache clean --force && go clean -modcache && brew cleanup --prune=all && rm -rf ~/.cargo/registry && uv cache clean && rm -rf ~/.npm/_npx"
+alias mustcleancachenow="npm cache clean --force && go clean -modcache && brew cleanup --prune=all && rm -rf ~/.cargo/registry && uv cache clean && rm -rf ~/.npm/_npx && sudo log erase --all"
 
 # Path variables
 export N_PREFIX=$HOME/.n
