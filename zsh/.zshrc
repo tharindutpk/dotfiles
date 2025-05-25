@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dls="cd ~/.dotfiles"
 alias cn="cd ~/.config/nvim"
+alias obs="cd /Users/tharindu/Library/CloudStorage/Dropbox/obsidian"
 
 # aliases for project directory
 alias cdir="cd ~/code/"
