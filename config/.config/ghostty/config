@@ -10,3 +10,5 @@ adjust-cell-height = 25%
 adjust-cell-width= -5%
 
 shell-integration-features = no-cursor
+
+term=xterm-256color
