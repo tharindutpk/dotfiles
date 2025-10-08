@@ -24,6 +24,11 @@ alias dls="cd ~/.dotfiles"
 alias cn="cd ~/.config/nvim"
 alias obs="cd ~/code/personal/obsidian"
 
+# Zellij aliases
+alias zls="zellij ls"
+alias zka="zellij ka"
+alias zda="zellij da"
+
 # aliases for project directory
 alias cdir="cd ~/code/"
 
