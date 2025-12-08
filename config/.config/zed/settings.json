@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+  "title_bar": {
+    "show_menus": false,
+    "show_branch_icon": false
+  },
   "buffer_font_features": {
     "calt": 0
   },
@@ -15,7 +24,11 @@
     "metrics": false
   },
   "base_keymap": "VSCode",
-  "icon_theme": "Colored Zed Icons Theme Dark",
+  "icon_theme": {
+    "mode": "system",
+    "light": "Colored Zed Icons Theme Dark",
+    "dark": "Colored Zed Icons Theme Dark"
+  },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
@@ -24,7 +37,7 @@
   },
   "vim_mode": true,
   "ui_font_size": 15,
-  "buffer_font_size": 17,
+  "buffer_font_size": 17.0,
   "buffer_line_height": {
     "custom": 1.33
   },
