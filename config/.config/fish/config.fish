@@ -9,7 +9,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 alias cfg="cd ~/.config"
 alias dls="cd ~/.dotfiles"
 alias cn="cd ~/.config/nvim"
-alias obs="cd ~/code/personal/obsidian"
+alias obs="cd ~/Code/misc/obsidian/"
 
 # Node (N)
 set -Ux N_PREFIX $HOME/.n
