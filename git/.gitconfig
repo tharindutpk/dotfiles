@@ -1,0 +1,5 @@
+[user]
+	name = Tharindu Pramuditha
+	email = git@tharindu.co
+[core]
+	excludesFile = ~/.gitignore_global
