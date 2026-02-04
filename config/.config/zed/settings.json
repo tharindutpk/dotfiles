@@ -45,7 +45,7 @@
   "theme": {
     "mode": "system",
     "light": "Owl No Italics",
-    "dark": "Syntax"
+    "dark": "Catppuccin Espresso (Blur) [Heavy]"
   },
   "restore_on_startup": "none",
   "auto_update": false
