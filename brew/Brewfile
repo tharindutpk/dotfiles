@@ -1,37 +1,75 @@
 tap "nikitabobko/tap"
 tap "supabase/tap"
+# Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Display information on the cargo cache, plus optional cache pruning
 brew "cargo-cache"
+# Cross-platform make
 brew "cmake"
+# Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Dependency Manager for PHP
 brew "composer"
+# Embeddable SQL OLAP Database Management System
+brew "duckdb"
+# Perl lib for reading and writing EXIF metadata
+brew "exiftool"
+# Simple, fast and user-friendly alternative to find
 brew "fd"
+# Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
+# Command-line fuzzy finder written in Go
 brew "fzf"
+# Distributed revision control system
 brew "git"
+# Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Open source programming language to build simple/reliable/efficient software
 brew "go"
+# Tools and libraries to manipulate images in select formats
 brew "imagemagick"
+# Lightweight and flexible command-line JSON processor
 brew "jq"
+# Package manager for the Lua programming language
 brew "luarocks"
+# Unified display of technical and tag data for audio/video
 brew "media-info"
+# Node version management
 brew "n"
+# Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Modern shell for the GitHub era
 brew "nushell"
+# 7-Zip (high compression file archiver) implementation
 brew "p7zip"
+# Fast, disk space efficient package manager
 brew "pnpm"
+# Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Program that allows you to count code, quickly
 brew "tokei"
+# Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Parser generator tool
+brew "tree-sitter-cli"
+# Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
+# Internet file retriever
 brew "wget"
+# JavaScript package manager
 brew "yarn"
+# Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
-brew "supabase/tap/supabase"
-cask "nikitabobko/tap/aerospace"
+cask "aerospace"
+# Terminal-based AI coding assistant
+cask "claude-code"
 cask "font-hack"
 cask "font-hack-nerd-font"
