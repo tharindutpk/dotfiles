@@ -1,6 +1,8 @@
 tap "nikitabobko/tap"
 tap "supabase/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
+# Background code checker for Rust, an alternative to cargo-watch
+brew "bacon"
 brew "bat"
 # Display information on the cargo cache, plus optional cache pruning
 brew "cargo-cache"
@@ -29,10 +31,14 @@ brew "gitui"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
 # Tools and libraries to manipulate images in select formats
+# Human-friendly `go test` runner with a watch mode
+brew "gotestsum"
 brew "imagemagick"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Package manager for the Lua programming language
+# Handy way to save and run project-specific commands
+brew "just"
 brew "luarocks"
 # Unified display of technical and tag data for audio/video
 brew "media-info"
@@ -51,6 +57,8 @@ brew "ripgrep"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
 # Program that allows you to count code, quickly
+# Terminal multiplexer
+brew "tmux"
 brew "tokei"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
@@ -59,6 +67,8 @@ brew "tree-sitter-cli"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Internet file retriever
+# Execute commands when watched files change
+brew "watchexec"
 brew "wget"
 # JavaScript package manager
 brew "yarn"
@@ -68,6 +78,8 @@ brew "yazi"
 brew "yt-dlp"
 # Pluggable terminal workspace, with terminal multiplexer as the base feature
 brew "zellij"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 cask "aerospace"
 # Terminal-based AI coding assistant
 cask "claude-code"

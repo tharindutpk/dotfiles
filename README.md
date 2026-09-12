@@ -18,6 +18,8 @@ This setup is designed for fast, clean, and reproducible workstation provisionin
 ## 🧩 Directory Structure
 
 ```
+├── bin/
+│   └── .local/bin/            # Scripts on PATH (tmux-sessionizer)
 ├── brew/
 │   └── Brewfile               # All Homebrew dependencies
 ├── config/
@@ -27,9 +29,10 @@ This setup is designed for fast, clean, and reproducible workstation provisionin
 │       ├── fish/              # Fish shell configuration
 │       ├── ghostty/           # Ghostty terminal configuration
 │       ├── nvim/              # Neovim configuration
+│       ├── tmux/              # tmux terminal multiplexer configuration
 │       ├── yazi/              # Yazi file manager configuration
 │       ├── zed/               # Zed editor configuration
-│       └── zellij/            # Zellij terminal multiplexer configuration
+│       └── zellij/            # Zellij configuration (kept as a fallback)
 ├── git/
 │   └── .gitignore_global
 ├── misc/
@@ -80,6 +83,7 @@ Each folder (e.g. `config`, `git`, `misc`) can be symlinked to your home directo
 stow -d ~/.dotfiles -t ~ config
 stow -d ~/.dotfiles -t ~ git
 stow -d ~/.dotfiles -t ~ misc
+stow -d ~/.dotfiles -t ~ bin
 ```
 
 Or, to stow everything at once:
@@ -112,6 +116,74 @@ brew install font-hack-nerd-font
 ```
 
 ---
+
+## 🖥 tmux
+
+Sessions are projects, windows are tasks, panes are splits. A session survives
+closing the terminal, rebooting the terminal app, and dropping an SSH
+connection — that is the whole reason to use it.
+
+The prefix is **`Ctrl-a`**. `Ctrl-a Ctrl-a` sends a literal `Ctrl-a` through, so
+beginning-of-line still works in fish.
+
+| keys | does |
+| --- | --- |
+| `Ctrl-a f` | fuzzy-pick a project, create or switch to its session |
+| `Ctrl-a s` | visual session/window tree |
+| `Ctrl-a d` | detach — everything keeps running |
+| `Ctrl-a (` / `)` | previous / next session |
+| `Ctrl-a c` | new window (inherits the current directory) |
+| `Ctrl-a 1…9` | jump to window by number |
+| `Ctrl-a \|` / `-` | split vertically / horizontally |
+| `Ctrl-a h j k l` | move between panes |
+| `Ctrl-a H J K L` | resize (repeatable) |
+| `Ctrl-a z` | zoom the current pane |
+| `Ctrl-a Enter` | copy mode — `v` select, `y` yank to the system clipboard |
+| `Ctrl-a r` | reload this config |
+
+`Ctrl-hjkl` is deliberately **not** bound: Neovim uses it for window focus.
+
+From the shell: `tmux ls`, `tmux attach -t <name>`, `tmux kill-session -t
+<name>` — abbreviated to `tl`, `ta`, `tk` in fish.
+
+### tmux-sessionizer
+
+`Ctrl-F` in fish, or `Ctrl-a f` inside tmux. It fuzzy-finds a project under
+`~/Code`, `~/Sites` and `~/Notes`, then attaches to its session — building one
+first if it does not exist, laid out by what the project contains:
+
+| project marker | windows |
+| --- | --- |
+| `Cargo.toml` | editor · shell · run (`bacon`) |
+| `go.mod` | editor · shell · run (`gotestsum --watch`) |
+| `pyproject.toml` | editor · shell · repl (`uv run python` \| `duckdb`) |
+| `package.json` | editor · shell · dev (`pnpm dev`) |
+| anything else | editor · shell |
+
+Add search roots at the top of `bin/.local/bin/tmux-sessionizer`.
+
+## 🏃 Per-project commands
+
+Long or repeated commands belong in a `justfile` at the project root, not in
+shell history and not in the editor. `just <recipe>` runs them from anywhere in
+the project, and they work the same over SSH.
+
+```just
+# Rust
+check:    cargo clippy --all-targets -- -D warnings
+test:     cargo nextest run
+watch:    bacon
+```
+
+```just
+# Go
+lint:     go vet ./...
+test:     gotestsum ./...
+watch:    gotestsum --watch ./...
+run:      go run ./cmd/server
+```
+
+`just` with no arguments runs the first recipe; `just --list` shows them all.
 
 ## 🧠 Notes
 

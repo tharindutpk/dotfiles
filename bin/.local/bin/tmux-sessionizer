@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+#
+# Fuzzy-switch to a project, creating a tmux session for it if there is not one
+# already. The session is named after the directory and laid out according to
+# what the project looks like -- see layout() below.
+#
+# Bound to prefix + f inside tmux, and to Ctrl-F in fish.
+
+set -euo pipefail
+
+# Where projects live. Add roots here, not depth -- one level under each.
+SEARCH_ROOTS=(
+    "$HOME/Code"
+    "$HOME/Sites"
+    "$HOME/Notes"
+)
+
+# Directories that are projects in their own right.
+EXTRA_DIRS=(
+    "$HOME/.dotfiles"
+    "$HOME/.config/nvim"
+)
+
+select_directory() {
+    {
+        for root in "${SEARCH_ROOTS[@]}"; do
+            [[ -d $root ]] && find "$root" -mindepth 1 -maxdepth 2 -type d \
+                -not -path '*/.git/*' -not -name '.git' -not -name 'node_modules'
+        done
+        printf '%s\n' "${EXTRA_DIRS[@]}"
+    } 2>/dev/null | sort -u | fzf --prompt="project > " --height=60% --reverse
+}
+
+# Session names cannot contain dots or colons.
+session_name() {
+    basename "$1" | tr '.:' '__'
+}
+
+# Build the windows for a new session, based on what the project contains.
+#
+#   editor   always window 1, nvim on the project root
+#   shell    always window 2, for git and one-off commands
+#   run      window 3, only when there is something worth watching
+layout() {
+    local dir=$1 name=$2
+
+    tmux new-session -d -s "$name" -c "$dir" -n editor
+    tmux send-keys -t "$name:editor" "nvim ." C-m
+
+    tmux new-window -t "$name" -c "$dir" -n shell
+
+    if [[ -f $dir/Cargo.toml ]]; then
+        tmux new-window -t "$name" -c "$dir" -n run
+        if command -v bacon >/dev/null; then
+            tmux send-keys -t "$name:run" "bacon" C-m
+        else
+            tmux send-keys -t "$name:run" "cargo watch -x check -x test" C-m
+        fi
+
+    elif [[ -f $dir/go.mod ]]; then
+        tmux new-window -t "$name" -c "$dir" -n run
+        tmux send-keys -t "$name:run" "gotestsum --watch ./..." C-m
+
+    elif [[ -f $dir/pyproject.toml ]]; then
+        # Research layout: a REPL on the left, DuckDB on the right for poking
+        # at the data the notebook-style loop is built on.
+        tmux new-window -t "$name" -c "$dir" -n repl
+        tmux send-keys -t "$name:repl" "uv run python" C-m
+        tmux split-window -h -t "$name:repl" -c "$dir"
+        tmux send-keys -t "$name:repl" "duckdb" C-m
+        tmux select-pane -t "$name:repl.{left}"   # focus the REPL, not duckdb
+
+    elif [[ -f $dir/package.json ]]; then
+        tmux new-window -t "$name" -c "$dir" -n dev
+        if command -v pnpm >/dev/null; then
+            tmux send-keys -t "$name:dev" "pnpm dev" C-m
+        else
+            tmux send-keys -t "$name:dev" "npm run dev" C-m
+        fi
+    fi
+
+    tmux select-window -t "$name:editor"
+}
+
+main() {
+    local dir name
+    dir=${1:-$(select_directory)}
+    [[ -z $dir ]] && exit 0
+
+    name=$(session_name "$dir")
+
+    tmux has-session -t="$name" 2>/dev/null || layout "$dir" "$name"
+
+    if [[ -n ${TMUX:-} ]]; then
+        tmux switch-client -t "$name"
+    else
+        tmux attach-session -t "$name"
+    fi
+}
+
+main "$@"
