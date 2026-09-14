@@ -1,6 +1,0 @@
-# This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR EDITOR:nvim
-SETUVAR --export N_PREFIX:/Users/tharindu/\x2en
-SETUVAR __fish_initialized:4300
-SETUVAR fish_user_paths:/opt/homebrew/sbin\x1e/opt/homebrew/bin\x1e/Users/tharindu/\x2en/bin\x1e/opt/homebrew/opt/curl/bin\x1e/Applications/Ghostty\x2eapp/Contents/MacOS
