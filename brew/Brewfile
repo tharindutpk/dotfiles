@@ -1,9 +1,7 @@
 tap "nikitabobko/tap"
 tap "supabase/tap"
-# Clone of cat(1) with syntax highlighting and Git integration
 # Background code checker for Rust, an alternative to cargo-watch
 brew "bacon"
-brew "bat"
 # Display information on the cargo cache, plus optional cache pruning
 brew "cargo-cache"
 # Cross-platform make
@@ -76,10 +74,6 @@ brew "yarn"
 brew "yazi"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
-# Pluggable terminal workspace, with terminal multiplexer as the base feature
-brew "zellij"
-# Shell extension to navigate your filesystem faster
-brew "zoxide"
 cask "aerospace"
 # Terminal-based AI coding assistant
 cask "claude-code"

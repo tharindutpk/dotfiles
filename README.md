@@ -9,7 +9,7 @@ This setup is designed for fast, clean, and reproducible workstation provisionin
 
 - **Homebrew + Brewfile** for automatic package management
 - **GNU Stow** for symlink management
-- Preconfigured **Fish shell**, **Neovim**, **Ghostty**, **Zed**, **Zellij**, and **Yazi**
+- Preconfigured **Fish shell**, **Neovim**, **Ghostty**, **Zed**, **tmux**, and **Yazi**
 - Global `.gitignore` and quiet shell login (`.hushlogin`)
 - Sensible defaults for fonts, themes, and UI scaling
 
@@ -25,14 +25,12 @@ This setup is designed for fast, clean, and reproducible workstation provisionin
 ├── config/
 │   └── .config/
 │       ├── aerospace/         # Aerospace window manager (macOS)
-│       ├── bat/               # Syntax highlighting for cat
 │       ├── fish/              # Fish shell configuration
 │       ├── ghostty/           # Ghostty terminal configuration
 │       ├── nvim/              # Neovim configuration
 │       ├── tmux/              # tmux terminal multiplexer configuration
 │       ├── yazi/              # Yazi file manager configuration
-│       ├── zed/               # Zed editor configuration
-│       └── zellij/            # Zellij configuration (kept as a fallback)
+│       └── zed/               # Zed editor configuration
 ├── git/
 │   └── .gitignore_global
 ├── misc/
