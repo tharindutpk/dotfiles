@@ -23,4 +23,14 @@ if status is-interactive
   # Ctrl-F: fuzzy-switch tmux projects, same as prefix + f inside tmux.
   bind --mode insert ctrl-f 'tmux-sessionizer; commandline -f repaint'
   bind --mode default ctrl-f 'tmux-sessionizer; commandline -f repaint'
+
+  # y: open Yazi, and cd to wherever you quit it.
+  function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    command yazi $argv --cwd-file="$tmp"
+    if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+      builtin cd -- "$cwd"
+    end
+    command rm -f -- "$tmp"
+  end
 end
