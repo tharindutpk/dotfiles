@@ -10,9 +10,9 @@
 -- helper module, five words per plugin.
 
 -- appearance and core editing
--- require("plugins.catppuccin")
+require("plugins.catppuccin")
 require("plugins.treesitter")
--- require("plugins.snacks")
+require("plugins.snacks")
 
 -- tooling
 require("plugins.fzf")
@@ -33,8 +33,8 @@ require("plugins.oil")
 
 -- editing helpers
 require("plugins.autopairs")
--- require("plugins.util")
--- require("plugins.persistence")
+require("plugins.util")
+require("plugins.persistence")
 require("plugins.lang")
 
 require("plugins.which-key")

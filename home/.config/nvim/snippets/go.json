@@ -6,7 +6,12 @@
   },
   "Wrapped error check": {
     "prefix": "iferrw",
-    "body": ["if err != nil {", "\treturn fmt.Errorf(\"${1:context}: %w\", err)", "}", "$0"],
+    "body": [
+      "if err != nil {",
+      "\treturn fmt.Errorf(\"${1:context}: %w\", err)",
+      "}",
+      "$0"
+    ],
     "description": "Return a wrapped error"
   },
   "Table test": {
