@@ -1,4 +1,4 @@
-# Without thif file StyLua formats with its own defaults -- tabs, indent
+# Without this file StyLua formats with its own defaults -- tabs, indent
 # width 4 -- and conform reformats every Lua file in this config on the
 # first save. Only the first two lines below are doing real work; the rest
 # pin defaults so an upstream change cannot quietly restyle the config.
@@ -17,12 +17,4 @@ quote_style = "AutoPreferDouble"
 call_parentheses = "Always"
 [sort_requires]
 enabled = true
-
-
-
-
-
-
-
-
 
