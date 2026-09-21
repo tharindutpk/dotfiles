@@ -1,2 +1,8 @@
 .DS_Store
 *.local
+
+# Ignore outputs as these are all rebuilt by the app itself.
+home/.config/fish/fish_variables
+home/.config/yazi/flavors/
+home/.config/yazi/plugins/
+home/.config/lazygit/state.yml
