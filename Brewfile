@@ -22,9 +22,17 @@ brew "neovim"
 brew "ripgrep"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
 # Parser generator tool
 brew "tree-sitter-cli"
+# Internet file retriever
+brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Feature-rich command-line audio/video downloader
 brew "yt-dlp"
+cask "font-googlesanscode-nerd-font"
+cask "font-hack"
+cask "font-hack-nerd-font"
+npm "corepack"

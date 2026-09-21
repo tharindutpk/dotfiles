@@ -1,0 +1,10 @@
+# Restored from the September audit of this machine. If your live Ghostty looks
+# different, the real settings are probably in
+#   ~/Library/Application Support/com.mitchellh.ghostty/
+# which Ghostty loads AFTER this file, so anything there wins. Move those
+# settings in here and delete that copy, or this file never takes effect.
+
+theme = iTerm2 Dark Background
+font-family = Hack Nerd Font Mono
+font-size = 15
+adjust-cell-height = 3%

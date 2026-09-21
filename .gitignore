@@ -6,3 +6,4 @@ home/.config/fish/fish_variables
 home/.config/yazi/flavors/
 home/.config/yazi/plugins/
 home/.config/lazygit/state.yml
+home/.config/zed/prompts/
