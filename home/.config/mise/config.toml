@@ -1,0 +1,12 @@
+[tools]
+node = "lts"
+go = "latest"
+
+[env]
+GOBIN = "{{env.HOME}}/go/bin"
+
+[settings]
+idiomatic_version_file_enable_tools = ["node", "go"]
+
+[settings.status]
+missing_tools = "always"

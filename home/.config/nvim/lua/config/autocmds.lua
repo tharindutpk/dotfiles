@@ -1,0 +1,92 @@
+-- Autocommands. `:help lua-guide-autocommands`
+
+---@param name string
+---@return integer
+-- local function augroup(name)
+--   return vim.api.nvim_create_augroup("tharindutpk_" .. name, { clear = true })
+-- end
+
+-- packages
+--
+-- This hook lives here, not in lua/plugins/treesitter.lua, and that placement
+-- is load-bearing: `PackChanged` fires *during* the `vim.pack.add()` that
+-- installs a plugin, so a hook registered after that call never runs on a
+-- fresh machine -- exactly when the parsers need building. lua/config is
+-- required before lua/plugins, so by the time anything installs, this exists.
+-- vim.api.nvim_create_autocmd("PackChanged", {
+--   group = augroup("pack_treesitter"),
+--   desc = "Rebuild parsers after nvim-treesitter changes",
+--   callback = function(args)
+--     local data = args.data
+--
+--     if data.spec and data.spec.name == "nvim-treesitter" and (data.kind == "update" or data.kind == "install") then
+--       vim.schedule(function()
+--         vim.cmd("TSUpdate")
+--       end)
+--     end
+--   end,
+-- })
+
+-- yank
+-- vim.api.nvim_create_autocmd("TextYankPost", {
+--   group = augroup("highlight_yank"),
+--   desc = "Highlight on yank",
+--   callback = function()
+--     vim.hl.on_yank()
+--   end,
+-- })
+
+-- buffers
+-- vim.api.nvim_create_autocmd("BufReadPost", {
+--   group = augroup("last_location"),
+--   desc = "Restore last cursor position",
+--   callback = function(event)
+--     local buf = event.buf
+--     local mark = vim.api.nvim_buf_get_mark(buf, '"')
+--     local lcount = vim.api.nvim_buf_line_count(buf)
+--
+--     if mark[1] > 0 and mark[1] <= lcount then
+--       pcall(vim.api.nvim_win_set_cursor, 0, mark)
+--     end
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+--   group = augroup("checktime"),
+--   desc = "Reload buffers changed outside Nvim",
+--   callback = function()
+--     if vim.o.buftype ~= "nofile" then
+--       vim.cmd("checktime")
+--     end
+--   end,
+-- })
+
+-- quit
+-- vim.api.nvim_create_autocmd("FileType", {
+--   group = augroup("close_with_q"),
+--   desc = "Close throwaway buffers with q",
+--   pattern = {
+--     "checkhealth",
+--     "gitsigns-blame",
+--     "help",
+--     "man",
+--     "nvim-pack",
+--     "qf",
+--     "query",
+--     "startuptime",
+--   },
+--   callback = function(event)
+--     vim.bo[event.buf].buflisted = false
+--
+--     vim.schedule(function()
+--       vim.keymap.set("n", "q", function()
+--         vim.cmd("close")
+--         pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+--       end, {
+--         buffer = event.buf,
+--         silent = true,
+--         desc = "Quit buffer",
+--       })
+--     end)
+--   end,
+-- })
