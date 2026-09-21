@@ -1,13 +1,37 @@
--- Plugins are loaded in dependency order, not alphabetically:
---   * the colorscheme first, so everything else can theme against it;
---   * blink before anything that reads LSP capabilities;
---   * which-key last, so its groups are registered after every mapping exists.
---
--- Each file calls `vim.pack.add()` and then configures its plugin. Anything
--- the first screen draw does not depend on is wrapped in `vim.schedule()`,
--- which runs it on the next loop tick -- after the UI is up, before you can
--- press a key. That is the whole lazy-loading story here: no framework, no
--- helper module, five words per plugin.
+vim.pack.add({
+  { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+  "https://github.com/MeanderingProgrammer/treesitter-modules.nvim",
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
+  "https://github.com/windwp/nvim-ts-autotag",
+  "https://github.com/folke/snacks.nvim",
+  "https://github.com/ibhagwan/fzf-lua",
+  "https://github.com/mason-org/mason.nvim",
+  "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
+  "https://github.com/j-hui/fidget.nvim",
+  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range("1") },
+  "https://github.com/rafamadriz/friendly-snippets",
+  "https://github.com/stevearc/conform.nvim",
+  "https://github.com/mfussenegger/nvim-lint",
+  "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/sindrets/diffview.nvim",
+  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/nvim-lualine/lualine.nvim",
+  "https://github.com/akinsho/bufferline.nvim",
+  "https://github.com/nvim-tree/nvim-tree.lua",
+  "https://github.com/stevearc/oil.nvim",
+  "https://github.com/windwp/nvim-autopairs",
+  "https://github.com/kylechui/nvim-surround",
+  "https://github.com/rmagatti/alternate-toggler",
+  "https://github.com/saghen/blink.indent",
+  "https://github.com/folke/persistence.nvim",
+  "https://github.com/mrcjkb/rustaceanvim",
+  "https://github.com/folke/which-key.nvim",
+}, { confirm = false })
+
+-- Configured in dependency order. Anything the first draw does not need is
+-- wrapped in vim.schedule() inside its file, which runs it on the next loop
+-- tick -- after the UI is up, before you can press a key.
 
 -- appearance and core editing
 require("plugins.catppuccin")
@@ -35,6 +59,5 @@ require("plugins.oil")
 require("plugins.autopairs")
 require("plugins.util")
 require("plugins.persistence")
-require("plugins.lang")
 
 require("plugins.which-key")

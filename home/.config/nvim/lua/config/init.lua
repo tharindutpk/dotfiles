@@ -1,5 +1,4 @@
--- config.lsp is required from init.lua *after* the plugins, so it is not
--- listed here.
+-- config.lsp is not here: init.lua requires it after the plugins.
 require("config.options")
 require("config.keymaps")
 require("config.autocmds")

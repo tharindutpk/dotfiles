@@ -1,30 +1,11 @@
-vim.pack.add({
-  { src = "https://github.com/ibhagwan/fzf-lua" },
-}, { confirm = false })
-
--- fzf-lua is ~14ms to require and configure, and nothing needs it before the
--- first draw. `vim.schedule` runs this on the next loop tick -- after the UI
--- is up, and long before any of the mappings below can be pressed.
 vim.schedule(function()
-  require("fzf-lua").setup({
-    winopts = {
-      height = 0.80,
-      width = 0.80,
-      row = 0.5,
-      backdrop = 60,
-    },
-  })
+  require("fzf-lua").setup({ winopts = { height = 0.80, row = 0.5 } })
 end)
 
 local M = {}
 
---- Return a function that opens the named fzf-lua picker.
----
---- Exported because lua/config/lsp.lua binds the `gr*` mappings to pickers too,
---- and closing over the module here keeps `require("fzf-lua")` off the path
---- that runs whenever a language server attaches.
----@param picker string Name of a field on the fzf-lua module, e.g. "files".
----@param opts? table Picker options.
+---@param picker string
+---@param opts? table
 ---@return fun()
 function M.pick(picker, opts)
   return function()

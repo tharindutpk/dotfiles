@@ -1,9 +1,3 @@
-vim.pack.add({
-  { src = "https://github.com/stevearc/conform.nvim" },
-}, { confirm = false })
-
--- Eager: conform installs its own format-on-save autocmd inside setup(), and
--- that has to exist before the first write. It is ~2ms.
 require("conform").setup({
   format_on_save = function(bufnr)
     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -12,9 +6,7 @@ require("conform").setup({
 
     return { timeout_ms = 500, lsp_format = "fallback" }
   end,
-  -- prettierd formats everything web-shaped, including .svelte, so that markup
-  -- and script stay in one style. biome is used for linting only -- see
-  -- lua/plugins/lint.lua.
+
   formatters_by_ft = {
     bash = { "shfmt" },
     c = { "clang_format" },

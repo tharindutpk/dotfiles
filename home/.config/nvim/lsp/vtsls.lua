@@ -1,3 +1,14 @@
+-- Shared by the typescript and javascript settings below. Off until
+-- <leader>th turns them on; see lua/config/lsp.lua.
+local inlay_hints = {
+  parameterNames = { enabled = "literals" },
+  parameterTypes = { enabled = true },
+  variableTypes = { enabled = false },
+  propertyDeclarationTypes = { enabled = true },
+  functionLikeReturnTypes = { enabled = true },
+  enumMemberValues = { enabled = true },
+}
+
 ---@type vim.lsp.Config
 return {
   cmd = { "vtsls", "--stdio" },
@@ -30,26 +41,11 @@ return {
     typescript = {
       updateImportsOnFileMove = { enabled = "always" },
       suggest = { completeFunctionCalls = true },
-      -- Off until <leader>th turns them on; see lua/config/lsp.lua.
-      inlayHints = {
-        parameterNames = { enabled = "literals" },
-        parameterTypes = { enabled = true },
-        variableTypes = { enabled = false },
-        propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enabled = true },
-        enumMemberValues = { enabled = true },
-      },
+      inlayHints = inlay_hints,
     },
     javascript = {
       updateImportsOnFileMove = { enabled = "always" },
-      inlayHints = {
-        parameterNames = { enabled = "literals" },
-        parameterTypes = { enabled = true },
-        variableTypes = { enabled = false },
-        propertyDeclarationTypes = { enabled = true },
-        functionLikeReturnTypes = { enabled = true },
-        enumMemberValues = { enabled = true },
-      },
+      inlayHints = vim.deepcopy(inlay_hints),
     },
   },
 }

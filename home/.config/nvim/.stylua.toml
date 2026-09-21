@@ -1,15 +1,3 @@
-# Without this file StyLua formats with its own defaults -- tabs, indent
-# width 4 -- and conform reformats every Lua file in this config on the
-# first save. Only the first two lines below are doing real work; the rest
-# pin defaults so an upstream change cannot quietly restyle the config.
-#
-# It has to live HERE, not at the dotfiles repo root. `~/.config/nvim` is a
-# symlink, so StyLua walking up from a buffer goes to ~/.config and then ~,
-# never into ~/.dotfiles.
-#
-# lsp/lua_ls.lua also lists .stylua.toml as a root marker, so this doubles
-# as the thing that anchors lua-language-server to the config directory.
-
 indent_type = "Spaces"
 indent_width = 2
 column_width = 120
@@ -17,4 +5,3 @@ quote_style = "AutoPreferDouble"
 call_parentheses = "Always"
 [sort_requires]
 enabled = true
-

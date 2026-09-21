@@ -1,7 +1,3 @@
-vim.pack.add({
-  { src = "https://github.com/mfussenegger/nvim-lint" },
-}, { confirm = false })
-
 local function try_lint()
   if vim.bo.modifiable and vim.bo.buftype == "" then
     require("lint").try_lint()
@@ -9,9 +5,8 @@ local function try_lint()
 end
 
 vim.schedule(function()
-  -- biome is the JS/TS linter here; prettierd still owns formatting, so biome
-  -- never needs a biome.json to be useful -- with no config it lints against
-  -- its recommended rules.
+  -- biome only lints here (prettierd formats), so it needs no biome.json: with
+  -- none it applies its recommended rules.
   local biome = { "biomejs" }
 
   require("lint").linters_by_ft = {
@@ -32,8 +27,7 @@ vim.schedule(function()
     callback = try_lint,
   })
 
-  -- The autocmd above misses the file Nvim was started with, which was read
-  -- before this ran.
+  -- The autocmd misses the file Nvim was started with, read before this ran.
   try_lint()
 end)
 

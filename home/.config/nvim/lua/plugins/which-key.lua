@@ -1,7 +1,3 @@
-vim.pack.add({
-  { src = "https://github.com/folke/which-key.nvim" },
-}, { confirm = false })
-
 vim.schedule(function()
   require("which-key").setup({
     delay = 200,
