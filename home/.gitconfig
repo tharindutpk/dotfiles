@@ -6,20 +6,14 @@
 [init]
 	defaultBranch = main
 [push]
-	# First push of a new branch sets its upstream -- no `-u origin <branch>`.
 	autoSetupRemote = true
 [fetch]
-	# Remote branches deleted upstream disappear locally too.
 	prune = true
 [merge]
-	# Conflict markers also show the common ancestor, not just both sides.
 	conflictstyle = zdiff3
 [diff]
-	# Clearer diffs when code is moved or reordered.
 	algorithm = histogram
 [rerere]
-	# Remember how a conflict was resolved and reapply it next time.
 	enabled = true
-# Keep this last: machine-specific settings override everything above.
 [include]
 	path = ~/.gitconfig.local
