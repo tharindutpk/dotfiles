@@ -2,10 +2,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-[ "$(uname -s)" = Darwin ] || { echo "macOS only" >&2; exit 1; }
+[ "$(uname -s)" = Darwin ] || {
+  echo "macOS only" >&2
+  exit 1
+}
 
 echo "==> homebrew"
-command -v brew >/dev/null 2>&1 || \
+command -v brew >/dev/null 2>&1 ||
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # A fresh Homebrew install is not on this shell's PATH yet.
