@@ -1,5 +1,4 @@
 vim.schedule(function()
-  require("nvim-surround").setup({})
   require("alternate-toggler").setup({})
   require("blink.indent").setup({
     static = { char = "│" },

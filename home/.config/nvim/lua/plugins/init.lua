@@ -15,13 +15,11 @@ vim.pack.add({
   "https://github.com/mfussenegger/nvim-lint",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/sindrets/diffview.nvim",
-  "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/nvim-mini/mini.nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/stevearc/oil.nvim",
-  "https://github.com/windwp/nvim-autopairs",
-  "https://github.com/kylechui/nvim-surround",
   "https://github.com/rmagatti/alternate-toggler",
   "https://github.com/saghen/blink.indent",
   "https://github.com/folke/persistence.nvim",
@@ -35,6 +33,7 @@ vim.pack.add({
 
 -- appearance and core editing
 require("plugins.catppuccin")
+require("plugins.mini")
 require("plugins.treesitter")
 require("plugins.snacks")
 
@@ -56,7 +55,6 @@ require("plugins.nvim-tree")
 require("plugins.oil")
 
 -- editing helpers
-require("plugins.autopairs")
 require("plugins.util")
 require("plugins.persistence")
 
