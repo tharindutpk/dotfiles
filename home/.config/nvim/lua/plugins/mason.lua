@@ -22,9 +22,6 @@ local ensure_installed = {
   "biome",
   "markdownlint",
   "shellcheck",
-
-  -- nvim-treesitter's main branch builds parsers with the tree-sitter CLI.
-  "tree-sitter-cli",
 }
 
 vim.schedule(function()

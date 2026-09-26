@@ -24,7 +24,7 @@ map("n", "<leader>sl", M.pick("grep", { resume = true }), { desc = "Search by la
 map("n", "<leader>sd", M.pick("lsp_document_diagnostics"), { desc = "Search diagnostics" })
 map("n", "<leader>so", M.pick("oldfiles", { cwd_only = true }), { desc = "Search old files" })
 map("n", "<leader>sn", M.pick("files", { cwd = vim.fn.stdpath("config") }), { desc = "Search neovim files" })
-map("n", "<leader>s/", M.pick("buffers"), { desc = "Search in open files" })
+map("n", "<leader>s/", M.pick("lines"), { desc = "Search in open files" })
 map("n", "<leader>/", M.pick("grep_curbuf"), { desc = "Fuzzily search in current buffer" })
 map("n", "<leader><leader>", M.pick("buffers"), { desc = "Find existing buffers" })
 

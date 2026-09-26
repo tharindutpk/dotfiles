@@ -10,5 +10,4 @@ return {
     "requirements.txt",
     ".git",
   },
-  settings = {},
 }

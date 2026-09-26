@@ -28,11 +28,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set(mode or "n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
     end
 
-    -- ruff and ty both attach to Python: ty owns hover, ruff lint and format.
-    if client.name == "ruff" then
-      client.server_capabilities.hoverProvider = false
-    end
-
     -- fzf-lua pickers in place of the built-in gr* defaults (:help lsp-defaults).
     map("grd", pick("lsp_definitions"), "Goto definition")
     map("grt", pick("lsp_typedefs"), "Goto type definition")

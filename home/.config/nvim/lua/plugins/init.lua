@@ -1,10 +1,14 @@
 vim.pack.add({
+  -- appearance and core editing
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
+  "https://github.com/nvim-mini/mini.nvim",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
   "https://github.com/MeanderingProgrammer/treesitter-modules.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
   "https://github.com/windwp/nvim-ts-autotag",
   "https://github.com/folke/snacks.nvim",
+
+  -- tooling
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/mason-org/mason.nvim",
   "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -15,15 +19,21 @@ vim.pack.add({
   "https://github.com/mfussenegger/nvim-lint",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/sindrets/diffview.nvim",
-  "https://github.com/nvim-mini/mini.nvim",
+  "https://github.com/mrcjkb/rustaceanvim",
+
+  -- ui
   "https://github.com/nvim-lualine/lualine.nvim",
   "https://github.com/akinsho/bufferline.nvim",
+
+  -- files
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/stevearc/oil.nvim",
+
+  -- editing helpers
   "https://github.com/rmagatti/alternate-toggler",
   "https://github.com/saghen/blink.indent",
   "https://github.com/folke/persistence.nvim",
-  "https://github.com/mrcjkb/rustaceanvim",
+
   "https://github.com/folke/which-key.nvim",
 }, { confirm = false })
 
