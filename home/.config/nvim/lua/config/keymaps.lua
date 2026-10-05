@@ -13,6 +13,13 @@ map("n", "<C-k>", "<C-w><C-k>", { desc = "Focus upper window" })
 
 map("n", "<leader>tl", "<cmd>set list!<CR>", { desc = "Toggle whitespace" })
 map("n", "<leader>tw", "<cmd>set wrap!<CR>", { desc = "Toggle line wrap" })
+map("n", "<leader>td", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle diagnostics" })
+map("n", "<leader>tv", function()
+  local vt = vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({ virtual_text = not vt and { source = true } or false })
+end, { desc = "Toggle diagnostic virtual text" })
 
 local function pack(opts)
   return function()
