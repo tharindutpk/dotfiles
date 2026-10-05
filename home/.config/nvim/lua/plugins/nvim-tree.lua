@@ -15,7 +15,7 @@ vim.schedule(function()
       icons = { git_placement = "after" },
     },
     diagnostics = { enable = true, show_on_dirs = true },
-    filters = { git_ignored = false },
+    filters = { git_ignored = false, custom = { "^\\.DS_Store$" } },
     actions = { open_file = { quit_on_open = true } },
   })
 end)
